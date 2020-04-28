@@ -1,10 +1,10 @@
 Implementing trend indicators in kdb+
 =====================================
 
-Companion code to the [eponymous Kx white paper](https://code.kx/com/q/wp/trend-indicators/)
+Companion code to the [eponymous Kx white paper](https://code.kx.com/q/wp/trend-indicators/)
 
 
-`GraphicGrammerPLotsWP.q`
+`GraphicGrammarPLotsWP.q`
 
 : Contains all code used in Analyst to graph statistics.
 
