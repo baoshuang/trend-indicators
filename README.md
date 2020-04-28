@@ -1,13 +1,21 @@
-# README
-The Following repository contains code used to complete the Whitepaper.
+Implementing trend indicators in kdb+
+=====================================
+
+Companion code to the [eponymous Kx white paper](https://code.kx/com/q/wp/trend-indicators/)
 
 
-GraphicGrammerPLotsWP.q -- This contains all code used in Analyst to graph statistics.
+`GraphicGrammerPLotsWP.q`
 
-crypto.py -- This the python code used to connect to cryptocurrency feeds and extract trade and quote information which is then passed to ticker plant.
+: Contains all code used in Analyst to graph statistics.
 
-cryptoFuncs.q -- is the q script that contains all the q code to generate all statistics/oscillators and indicators.
+`crypto.py`
 
-The rest of the files are your Normal tp/rdb/eod code.
+: Python code used to connect to cryptocurrency feeds and extract trade and quote information, which is then passed to ticker plant.
 
-This paper illustrates how kdb can be used to perform trade analytics. The paper discusses commonl used indictors and oscillators which traders use to trigger buy/sell signals while also offering them a clearer image of the market. 
+cryptoFuncs.q
+
+: Contains the q code to generate all statistics/oscillators and indicators.
+
+The rest of the files are standard tickerplant, realtime database, and end-of-day code.
+
+The paper describes using kdb+ to produce trade analytics – indicators and oscillators traders commonly use to trigger buy/sell signals and clarify their picture of the market.
