@@ -42,14 +42,9 @@ sma:{[x]
                     ,.qp.s.scale [`y; .gg.scale.limits[6000 0N] .gg.scale.linear]
                     , .qp.s.labels[`x`y!("Date";"Price")])}
 
--4#wpData
-3#update sma10:mavg[10;close],sma20:mavg[15;close] from select from wpData where sym=`BTC_USD,exch=`KRAKEN
-sma[update sma10:mavg[10;close],sma20:mavg[20;close] from select from wpData where sym=`BTC_USD,exch=`KRAKEN
-
-wpData:get `:analystInfo/newCloseTab
-
-sym:get `:analystInfo/analystInfo/sym
-
+/ -4#wpData
+/ 3#update sma10:mavg[10;close],sma20:mavg[15;close] from select from wpData where sym=`BTC_USD,exch=`KRAKEN
+/ sma[update sma10:mavg[10;close],sma20:mavg[20;close] from select from wpData where sym=`BTC_USD,exch=`KRAKEN
 
 rsi:{[x]
     .qp.go[750;300]
@@ -68,7 +63,7 @@ rsi:{[x]
                     .qp.s.geom[enlist[`fill]!enlist .gg.colour.Red]
                     ,.qp.s.labels[`x`y!("Date";"RSI %")])}
 
-rsi[update rsi:rsiMain[close;14] from select from wpData where exch=`HITBTC,sym=`ETH_USD]
+/ rsi[update rsi:rsiMain[close;14] from select from wpData where exch=`HITBTC,sym=`ETH_USD]
 
 rsi:{[x]
     .qp.go[700;300]
@@ -87,7 +82,7 @@ rsi:{[x]
                     .qp.s.geom[enlist[`fill]!enlist .gg.colour.Red]
                     ,.qp.s.labels[`x`y!("Date";"RSI %")])}
 
-rsi[update rsi:rsiMain[close;14] from select from wpData where exch=`HITBTC,sym=`ETH_USD]
+/ rsi[update rsi:rsiMain[close;14] from select from wpData where exch=`HITBTC,sym=`ETH_USD]
 
 
 sma:{[x]
@@ -202,7 +197,7 @@ bollingerBands:{[x]
                     .qp.s.geom[enlist[`fill]!enlist .gg.colour.Purple]
                     , .qp.s.labels[`x`y!("Date";"Price")])}
 
-bollingerBands[bollB[wpData;20;`KRAKEN;`BTC_USD]]
+/ bollingerBands[bollB[wpData;20;`KRAKEN;`BTC_USD]]
 
 cciPlot:{[x]
     .qp.go[700;400]
@@ -220,7 +215,7 @@ cciPlot:{[x]
                     ,.qp.s.legend[""; (enlist `price)!(enlist .gg.colour.Red)]
                     ,.qp.s.labels[`x`y!("Date";" Price")])}
 
-cciPlot[update cci:CCI[high;low;close;14] from select from wpData where sym=`BTC_USD,exch=`KRAKEN]
+/ cciPlot[update cci:CCI[high;low;close;14] from select from wpData where sym=`BTC_USD,exch=`KRAKEN]
 
 
 forceIndexPlot:{[x]
@@ -239,7 +234,8 @@ forceIndexPlot:{[x]
                     ,.qp.s.legend[""; (enlist `price)!(enlist .gg.colour.Red)]
                     ,.qp.s.labels[`x`y!("Date";" Price")])}
 
-forceIndexPlot[update forceInd:forceIndex[close;vol;13] from select from wpData where sym=`BTC_USD,exch=`KRAKEN]
+/ forceIndexPlot[update forceInd:forceIndex[close;vol;13] from select from wpData where sym=`BTC_USD,exch=`KRAKEN]
+
 emvPlot:{[x]
     .qp.go[700;600]
         .qp.title["EMV + Close Price + Volume for ETH_USD on Kraken"]
@@ -261,7 +257,7 @@ emvPlot:{[x]
                     ,.qp.s.legend[""; (enlist `vol)!(enlist .gg.colour.Green)]
                     ,.qp.s.labels[`x`y!("Date";" Volume")])}
 
-emvPlot[select date,vol,close,EMV:emv[high;low;vol;10000;14] from wpData where sym=`ETH_USD,exch=`KRAKEN]
+/ emvPlot[select date,vol,close,EMV:emv[high;low;vol;10000;14] from wpData where sym=`ETH_USD,exch=`KRAKEN]
 
 
 
@@ -286,7 +282,7 @@ rocGraph:{.qp.go[500;500]
                 , .qp.s.labels[`x`y!("Date";"ROC %")]
     ))}
 
-rocGraph[select date,close,ROC:roc[close;9] from wpData where sym=`BTC_USD,exch=`KRAKEN]
+/ rocGraph[select date,close,ROC:roc[close;9] from wpData where sym=`BTC_USD,exch=`KRAKEN]
 
 stochsticOsc:{[x]
     .qp.go[700;300]
@@ -308,9 +304,9 @@ stochsticOsc:{[x]
                     .qp.s.geom[enlist[`fill]!enlist .gg.colour.Purple]
                     , .qp.s.labels[`x`y!("Date";"%")])}
 
-stochsticOsc[select date,sym,stoOscK:stoOscK[close;high;low;14;1],stoOscD:stoOscD[close;high;low;14;1;3] from wpData where exch=`KRAKEN,sym=`BTC_USD]
+/ stochsticOsc[select date,sym,stoOscK:stoOscK[close;high;low;14;1],stoOscD:stoOscD[close;high;low;14;1;3] from wpData where exch=`KRAKEN,sym=`BTC_USD]
 
-aroonGraph[select date,aroonUp:aroon[high;25;max],aroonDown:aroon[low;25;min],aroonOsc:aroonOsc[high;low;25] from wpData where sym=`BTC_USD,exch=`KRAKEN]
+/ aroonGraph[select date,aroonUp:aroon[high;25;max],aroonDown:aroon[low;25;min],aroonOsc:aroonOsc[high;low;25] from wpData where sym=`BTC_USD,exch=`KRAKEN]
 
 aroonGraph:{.qp.go[700;500]
     .qp.title["Aroon BTC on Kraken"]
@@ -332,5 +328,5 @@ aroonGraph:{.qp.go[700;500]
                 ,.qp.s.scale [`y; .gg.scale.limits[0 100] .gg.scale.linear]
                 , .qp.s.labels[`x`y!("Date";"Aroon %")]
     ))}
-select date,aroonUp:aroon[high;25;max],aroonDown:aroon[low;25;min],aroonOsc:aroonOsc[high;low;25] from wpData where sym=`BTC_USD,exch=`KRAKEN
+/ select date,aroonUp:aroon[high;25;max],aroonDown:aroon[low;25;min],aroonOsc:aroonOsc[high;low;25] from wpData where sym=`BTC_USD,exch=`KRAKEN
 
